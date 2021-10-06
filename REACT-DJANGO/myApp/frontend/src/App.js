@@ -26,9 +26,11 @@ function App() {
     <div className="App">
       
      <Header />
-     <CreateProduct path='products' send={callback}/>
-      <ProductsList  path='products' products={Iproduct}/>
+    
      <Router>
+     
+     <CreateProduct path='products' send={callback}/>
+     <ProductsList  path='products' products={Iproduct}/>
       <ProductDetails path='product/details/:id'/>
       
      

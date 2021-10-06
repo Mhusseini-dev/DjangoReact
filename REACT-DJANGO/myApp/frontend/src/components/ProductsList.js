@@ -12,9 +12,9 @@ const ProductsList = ({products }) => {
                 products.map((value, index)=>{
                     return <ul>
                     <a href={'/product/details/'+ value.id} ><li key={index}>{value.name}</li></a>
-                    {/* <li>{value.price}</li>
-                    <li>{value.availablity}</li>
-                    <li>{value.quantity}</li> */}
+                    <li>{value.price}</li>
+                    <li> {value.availablity}</li>
+                    <li>{value.quantity}</li>
                     </ul>
                 })
             }

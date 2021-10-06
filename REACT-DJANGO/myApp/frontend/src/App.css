@@ -1,7 +1,11 @@
 .App {
   text-align: center;
 }
-
+.form{
+  display: inline-block;
+  width: fit-content;
+  height: fit-content;
+}
 .App-logo {
   height: 40vmin;
   pointer-events: none;
@@ -30,6 +34,7 @@
 
 @keyframes App-logo-spin {
   from {
+
     transform: rotate(0deg);
   }
   to {

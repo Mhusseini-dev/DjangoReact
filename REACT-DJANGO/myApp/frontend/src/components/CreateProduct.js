@@ -1,5 +1,9 @@
 import React,{useState} from 'react'
 import axios from 'axios'
+import { Button, Form, FormGroup, Label, Input, FormText } from 'reactstrap';
+import '../App.css';
+
+
 
 const CreateProduct = (props) => {
     const [name, setName]= useState('')
@@ -20,28 +24,29 @@ const CreateProduct = (props) => {
         props.send(Product)})
     }
     return (
-        <div>
+        <div className="form">
+            <center>
             <form onSubmit={addProduct}>
-                <label>
-                    Name: 
-                </label>
-                <input type='text' name='name' onChange={(e) => setName(e.target.value)}/>
-                <label>
-                    Price: 
-                </label>
-                <input type='text' name='price' onChange={(e) => setPrice(e.target.value)}/>
-                <label>
-                    Availability: 
-                </label>
-                <input type='checkbox' name='availability'onChange={(e) => setAvailability(e.target.value)}/>
-                <label>
-                    Quantity: 
-                </label>
-                <input type='text' name='quantity' onChange={(e) => setQuantity(e.target.value)}/>
-                <input type='submit' value='submit' />
+            <FormGroup>
+        <Label for="Name">name</Label>
+        <Input type="text" name="email" id="name" placeholder="Name"  onChange={(e)=> setName(e.target.value)}/>
+      </FormGroup>
+      <FormGroup>
+        <Label for="Price">Price</Label>
+        <Input type="text" name="price" id="price" placeholder="price " onChange={(e)=> setPrice(e.target.value)}/>
+      </FormGroup>
+      <FormGroup>
+        <Label for="Price">Availability</Label>
+        <Input type="checkbox" name="availability" id="checkbox"  onChange={(e)=> setAvailability(e.target.value)}/>
+      </FormGroup>
+      <FormGroup>
+        <Label for="Quantity">Quantity</Label>
+        <Input type="number" name="quantity" id="quantity" placeholder="1 " onChange={(e)=> setQuantity(e.target.value)}/>
+      </FormGroup>
+      <Button type='submit' color="primary">Create</Button>
 
             </form>
-            
+            </center>
         </div>
     )
 }
