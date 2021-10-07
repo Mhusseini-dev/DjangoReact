@@ -55,10 +55,32 @@ def update_item(request, id):
     if request.method =='PUT':
         product_to_update = Product.objects.get(id = id)
         product_to_update.quantity = product_to_update.quantity -1
-        if product_to_update.quantity < 0:
+        if product_to_update.quantity <= 0:
+            print('here')
+            product_to_update.availability = False
+            product_to_update.save()
+            print('unavailable')
             return HttpResponse("exceeded a set number")
         product_to_update.save()
         serializer = ProudctSerializers(product_to_update, context={'request': request})
         return Response(serializer.data)
-
-        
+    
+@api_view(['GET'])
+def getAvailabity(request, id):
+    if request.method == 'GET':
+        product_to_get = Product.objects.get(id = id)
+        return  HttpResponse (product_to_get.availability)
+    
+####below method is unnecessary atm. the update_item method now updates the availability as well.
+@api_view(['PATCH', 'PUT'])
+def setAvailability(request, id):
+    if request.method =='PUT':
+        product = Product.objects.get(id = id)
+        if product.availability:
+            product.availability = False
+            product.save()
+        else:
+            product.availability = True
+            product.availibilty = False
+            product.save()
+    return HttpResponse (product.availability)

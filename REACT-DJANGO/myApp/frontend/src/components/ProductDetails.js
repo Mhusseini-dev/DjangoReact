@@ -10,6 +10,7 @@ const ProductDetails = (props) => {
         axios.get('http://localhost:8000/api/product/' +props.id)
         .then(res => {
             setProduct(res.data)})
+            
 
     },[render])
 
@@ -18,12 +19,9 @@ const ProductDetails = (props) => {
         .then(res => {console.log("decremented")
         rerender(!render);
 
-        
     })
     }
-  
     return (
-
         <div>
             <h2>details</h2>
            <h2>{product.name}</h2>

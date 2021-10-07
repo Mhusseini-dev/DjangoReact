@@ -29,7 +29,7 @@ function App() {
     
      <Router>
      
-     <CreateProduct path='products' send={callback}/>
+     {/* <CreateProduct path='products' send={callback}/> */}
      <ProductsList  path='products' products={Iproduct}/>
       <ProductDetails path='product/details/:id'/>
       
